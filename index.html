@@ -277,7 +277,6 @@
             const ip = basic.YourFuckingIPAddress;
 
             if (ip) {
-                // Burada API-ni dəyişdirdik
                 detailed = await safeJsonFetch(
                     `https://ipapi.co/${ip}/json/`,
                     'Detailed location info could not be loaded. Disable ad-blocker and refresh.'
@@ -288,7 +287,6 @@
 
             const detector = new BrowserDetector(window.navigator.userAgent).parseUserAgent();
 
-            // Parametrləri ipapi.co formatına uyğunlaşdırdıq
             pushInfo('IP Address', basic.YourFuckingIPAddress);
             pushInfo('Country', detailed?.country_name);
             pushInfo('Region', detailed?.region);
@@ -509,7 +507,7 @@
     </style>
 </head>
 <body>
-    <div id="preload">
+        <div id="preload">
         <div id="loading">
             <span>Loading...</span>
             <span class="subtitle"><span id="loading-progress">0</span>%</span>
@@ -518,7 +516,8 @@
             <span>Click to start</span>
         </div>
         <span class="subtitle">Video from the Captain Underpants movie, audio from the game Jetpack Joyride.</span>
-        <span class="subtitle">The video experience you're about to see is personalized. Please do not share your screen with anyone while watching.</span>
+        <span class="subtitle">The video experience you're about to see is personalized.
+Please do not share your screen with anyone while watching.</span>
         <span class="subtitle">Thank you.</span>
     </div>
 
