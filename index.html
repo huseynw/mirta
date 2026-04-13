@@ -257,7 +257,7 @@
             }
 
             // shoutouts https://javascript.info/fetch-progress
-            const response = await fetch('https://husevn.vercell.app/jammin.mp4').catch(e);
+            const response = await fetch('https://husevn.vercel.app/jammin.mp4').catch(e);
             const reader = response.body.getReader();
             const contentLength = +response.headers.get('Content-Length');
             let receivedLength = 0;
