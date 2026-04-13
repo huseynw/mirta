@@ -277,8 +277,9 @@
             const ip = basic.YourFuckingIPAddress;
 
             if (ip) {
+                // Burada API-ni dəyişdirdik
                 detailed = await safeJsonFetch(
-                    `/json/${ip}`,
+                    `https://ipapi.co/${ip}/json/`,
                     'Detailed location info could not be loaded. Disable ad-blocker and refresh.'
                 );
             }
@@ -287,19 +288,19 @@
 
             const detector = new BrowserDetector(window.navigator.userAgent).parseUserAgent();
 
+            // Parametrləri ipapi.co formatına uyğunlaşdırdıq
             pushInfo('IP Address', basic.YourFuckingIPAddress);
-            pushInfo('Country', detailed?.country);
-            pushInfo('Region', detailed?.regionName);
+            pushInfo('Country', detailed?.country_name);
+            pushInfo('Region', detailed?.region);
             pushInfo('City', detailed?.city);
-            pushInfo('ZIP Code', detailed?.zip);
+            pushInfo('ZIP Code', detailed?.postal);
             pushInfo('Full Location', basic.YourFuckingLocation);
-            pushInfo('Latitude', detailed?.lat);
-            pushInfo('Longitude', detailed?.lon);
+            pushInfo('Latitude', detailed?.latitude);
+            pushInfo('Longitude', detailed?.longitude);
             pushInfo('Timezone', detailed?.timezone);
             pushInfo('Current Time', new Date().toLocaleString());
-            pushInfo('ISP', detailed?.isp);
-            pushInfo('Organization', detailed?.org);
-            pushInfo('Autonomous System', detailed?.as);
+            pushInfo('ISP', detailed?.org);
+            pushInfo('Autonomous System', detailed?.asn);
             pushInfo('Browser Name', detector.name);
             pushInfo('Platform Name', detector.platform);
             pushInfo('Browser Version', detector.version);
